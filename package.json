@@ -1,0 +1,25 @@
+{
+  "name": "votersearch",
+  "version": "1.0.0",
+  "description": "Eligible voter list search application for Aam Aadmi Party",
+  "main": "votersearch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/formbuddy/votersearch.git"
+  },
+  "author": "Ajay R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/formbuddy/votersearch/issues"
+  },
+  "homepage": "https://github.com/formbuddy/votersearch",
+  "dependencies": {
+    "body-parser": "^1.11.0",
+    "express": "^4.11.2",
+    "express-handlebars": "^1.1.0",
+    "mongoose": "^3.8.22"
+  }
+}
