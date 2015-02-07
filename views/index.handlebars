@@ -3,7 +3,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Voter list search</legend>
+<legend>Voter list search {{#if results}}(Max 100 results shown){{/if}}</legend>
 
 <!-- Text input-->
 <div class="form-group">
@@ -148,12 +148,12 @@
     <tr>
       <th class="col-md-1">AC No.</th>
       <th class="col-md-1">Part No.</th>
-      <th class="col-md-1">Section No.</th>
       <th class="col-md-1">Sl. No.</th>
       <th class="col-md-2">EPIC</th>
       <th class="col-md-3">Name</th>
       <th class="col-md-2">RName</th>
       <th class="col-md-1">House No.</th>
+      <th class="col-md-1">Section No.</th>
     </tr>
    </thead>
    <tbody>
@@ -161,15 +161,16 @@
     <tr>
       <td class="col-md-1">{{acno}}</td>
       <td class="col-md-1">{{partno}}</td>
-      <td class="col-md-1">{{section}}</td>
       <td class="col-md-1">{{sno}}</td>
-      <td class="col-md-2">{{idno}}</td>
+      <td class="col-md-2"><a onclick="secInfo('{{acno}}', '{{partno}}', '{{section}}'); return false;" href="#">{{idno}}</a></td>
       <td class="col-md-3">{{ename}}</td>
       <td class="col-md-2">{{rname}}</td>
       <td class="col-md-1">{{houseno}}</td>
+      <td class="col-md-1">{{section}}</td>
     </tr>
     {{/each}}
    </tbody>
+   </table>
 </div>
 {{/if}}
 </div>
@@ -181,5 +182,14 @@ $(document).ready(function() {
     //"columnDefs": [{ "targets": [ 2 ], "visible": false}]
     });
   });
+
+  function secInfo(acno, partno, secno){
+      $.get('/info/' + acno + '/' + partno + '/' + secno, function(data, status){
+          bootbox.dialog({
+                title: "Section Info",
+                message: data
+                });
+      });
+  }
  </script>
  {{/if}}

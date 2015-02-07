@@ -31,6 +31,11 @@ app.post('/', function(req, res){
     search.displayResults(req, res);
 });
 
+var secinfo = require('./lib/secinfo.js');
+app.get('/info/:acno/:partno/:section', function(req, res){
+    secinfo.displayResults(req, res);
+});
+
 app.listen(app.get('port'), '0.0.0.0', function(){
     console.log('Express started on http://0.0.0.0:' +
     app.get('port') + '; press Ctrl+C to terminate');
